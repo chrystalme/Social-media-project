@@ -4,6 +4,18 @@
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
   </span>
   <%= button_to 'Invite to friendship', user_friendships_path(user)  %>
+  <!---
+  <% user.friendships.each do |i| %>
+   <% if i.status == false %>
+  <%#= button_to "Pending", disabled %>
+  <% elsif i.status == true %>
+  <h6> Hi </h6>
+  <% else %>
+  <% end %> 
+  <%#= i %>
+  <% end %>
+  --->
+
   <%# if user %> <%# elsif user.friendship.status == false %> <%#= button_to 'Pending friendship', disable: true   %> <%# else %> <%#= button_to 'Pending friendship', disable: true   %> <%# end %> </li>
 <%# user.pending_friends.each do |i|%>
 <%#= i.name %>

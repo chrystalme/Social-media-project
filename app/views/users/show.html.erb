@@ -3,7 +3,8 @@
   <h2><%= "Name: #{@user.name}" %> </h2>
 
   <% if @user != current_user %>
-
+  <%# if user.friendships.status == false %>
+  <%@ else %>
   <%= button_to 'Invite to friendship', user_friendships_path(@user) %>
   </span>
   <% else %>

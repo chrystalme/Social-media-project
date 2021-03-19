@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :accepted_friendships, -> {where(status: true)}, class_name: 'Friendship'
   has_many :pending_friendships, -> {where(status: false)}, class_name: 'Friendship'
 
+  # enum(:confirmed, :pending_friends, :requested_friends)
   # status = confirmed and status == 'confirmed'
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.status == true}
