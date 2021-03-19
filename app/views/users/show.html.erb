@@ -2,10 +2,18 @@
 
   <h2><%= "Name: #{@user.name}" %> </h2>
 
-  <% if @user != current_user %>
-  <%# if user.friendships.status == false %>
-  <%@ else %>
+  <% if @user != current_user  %>
+  <% if current_user.friendships.exists? %>
+  <% @user.friendships.each do |f| %>
+  <%if f.status == false%>
+  <%= button_to 'Pending', users_path %>
+  <% elsif f.status == true %>
+  <h4> "Hi"</h4> <%= f.name %>
+  <% else %>
   <%= button_to 'Invite to friendship', user_friendships_path(@user) %>
+  <% end %>
+  <% end %>
+  <% end %>
   </span>
   <% else %>
   <h4>My friends : </h4>

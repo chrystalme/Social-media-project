@@ -3,25 +3,26 @@
   <span class="profile-link">
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
   </span>
-  <%= button_to 'Invite to friendship', user_friendships_path(user)  %>
-  <!---
-  <% user.friendships.each do |i| %>
-   <% if i.status == false %>
-  <%#= button_to "Pending", disabled %>
-  <% elsif i.status == true %>
-  <h6> Hi </h6>
+  <br>
+  <% if user.inverse_friendships.exists? %>
+  Pending Friendships: <% user.inverse_friendships.each do |i| %>
+  <% if i.status == false %>
+  <p> Pending put buttons to accept or deny</p>
   <% else %>
-  <% end %> 
-  <%#= i %>
+  <h5>I am a friend</h5>
   <% end %>
-  --->
+  <% end %>
+  <% else %>
+  <%= button_to 'Invite to friendship', user_friendships_path(user)  %>
+  <% end %>
+  <br>
+  Friendships: <% user.friendships.each do |i| %>
+  <%= i %>
+  <% end %>
+  <br>
+  Inverse Friendships: <% user.inverse_friendships.each do |i| %>
+  <%= i.status %>
+  <% end %>
 
-  <%# if user %> <%# elsif user.friendship.status == false %> <%#= button_to 'Pending friendship', disable: true   %> <%# else %> <%#= button_to 'Pending friendship', disable: true   %> <%# end %> </li>
-<%# user.pending_friends.each do |i|%>
-<%#= i.name %>
-<%# end %>
-<%#= button_to 'pending', user_friendships_path(user) %>
-<%# elsif current_user.pending_friends %>
-<%#= button_to 'Pending', user_friendships_path(user) %>
-<%# end %>
+
 </li>

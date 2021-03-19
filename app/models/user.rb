@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: :friend_id
   # Added these for the other options for user status
   has_many :accepted_friendships, -> { where(status: true) }, class_name: 'Friendship'
-  has_many :pending_friendships, -> { where(status: false) }, class_name: 'Friendship'
+  has_many :pending_friendships, -> { where(status: false) }, class_name: 'Friendship', foreign_key: :friend_id
 
   # enum(:confirmed, :pending_friends, :requested_friends)
   # status = confirmed and status == 'confirmed'
