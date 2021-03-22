@@ -1,6 +1,6 @@
 <section class="user-section">
 
-  <h2><%= "Name: #{@user.name}" %> </h2>
+  <h3><%= "Name: #{@user.name}" %> </h3>
 
   <% if @user != current_user  %>
   <% if current_user.friendships.exists? %>

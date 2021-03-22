@@ -5,24 +5,18 @@
   </span>
   <br>
   <% if user.inverse_friendships.exists? %>
-  Pending Friendships: <% user.inverse_friendships.each do |i| %>
-  <% if i.status == false %>
-  <p> Pending put buttons to accept or deny</p>
+    <% user.inverse_friendships.each do |i| %>
+      <% if i.status == false %>
+      <span class = "btn btn-primary disabled"> Pending </span>
+      <% else %>
+      <span class = "btn btn-primary disabled"> Friend </span>
+      <% end %>
+    <% end %>
   <% else %>
-  <h5>I am a friend</h5>
-  <% end %>
-  <% end %>
-  <% else %>
-  <%= button_to 'Invite to friendship', user_friendships_path(user)  %>
+  <%= button_to 'Invite to friendship', user_friendships_path(user), class:"btn btn-primary"  %>
   <% end %>
   <br>
-  Friendships: <% user.friendships.each do |i| %>
-  <%= i %>
-  <% end %>
-  <br>
-  Inverse Friendships: <% user.inverse_friendships.each do |i| %>
-  <%= i.status %>
-  <% end %>
+ 
 
 
 </li>
