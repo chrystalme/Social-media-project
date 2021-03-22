@@ -9,8 +9,9 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  # Accept Friendship
   def update
-    @friendship = current_user.friendships.find(id: params[:id])
+    @friendship = Friendship.find_by(@friend, user: current_user)
     @friendship.update(status: true)
     flash[:notice] = "#{user.name} accepted your frienship request." if @friendship.save
     redirect_to root_path
@@ -19,6 +20,6 @@ class FriendshipsController < ApplicationController
   private
 
   def user
-    @friend = User.find(params[:user_id])
+    @friend = User.find(params[:friend_id])
   end
 end
