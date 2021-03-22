@@ -11,9 +11,7 @@ class FriendshipsController < ApplicationController
 
   def accept
     @friendship = current_user.friendships.update(friend_id: params[:user_id], status: true)
-    if @friendship.save
-      flash[:notice] = "#{user.name} accepted your frienship request."
-    end
+    flash[:notice] = "#{user.name} accepted your frienship request." if @friendship.save
     redirect_to users_path
   end
 
