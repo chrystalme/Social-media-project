@@ -1,7 +1,7 @@
 <section class="user-section">
 
-  <h3><%= "Name: #{@user.name}" %> </h3>
-  <h4>Pending Friends:</h4>
+  <br>
+  <h3 class="text-danger">Pending Friends:</h3>
   <% if @user.inverse_friendships.exists? %>
   <% @user.inverse_friendships.each do |i| %>
   <br>
@@ -21,9 +21,10 @@
 
 
 
-
+  <br>
+  <br>
   <article class="timeline">
-    <h5>Recent posts:</h5>
+    <h3 class= "text-primary" >Your Posts:</h3>
     <ul class="posts">
       <%= render @posts %>
     </ul>
