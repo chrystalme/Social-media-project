@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
   def update
     @friendship = Friendship.find_by(@user)
     @friendship.update(status: true)
-    flash[:notice] = "#{user.name} accepted your frienship request." if @friendship.save
+    @friendship.save
     redirect_to root_path
   end
 
