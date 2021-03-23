@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   # Users who have yet to confirmed friend requests
   def pending_friends
-    friendships.map{ |friendship| friendship.friend if !friendship.status == true }.compact
+    friendships.map { |friendship| friendship.friend if !friendship.status == true }.compact
   end
 
   # Users who have requested to be friends
