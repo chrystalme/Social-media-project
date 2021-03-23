@@ -23,5 +23,4 @@ module ApplicationHelper
   #     link_to( 'Deny', user_friendships_path(@user))
   #   end
   # end
-
 end
