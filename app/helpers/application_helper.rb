@@ -15,4 +15,13 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  # def accept_or_deny_btn(friendship)
+  #   friend_request = Friendship.find_by(status: false, user: current_user)
+  #   if friend_request
+  #     link_to('Accept', user_friendship_path(@user, i.id))
+  #     link_to 'Deny', user_friendships_path(@user)
+  #   else
+  #   end
+  # end
 end

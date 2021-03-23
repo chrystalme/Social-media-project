@@ -1,7 +1,6 @@
 <section class="user-section">
 
   <h3><%= "Name: #{@user.name}" %> </h3>
-
   <h4>Pending Friends:</h4>
   <% if @user.inverse_friendships.exists? %>
   <% @user.inverse_friendships.each do |i| %>
@@ -12,6 +11,8 @@
   <% end %>
   <% end %>
   <% end %>
+
+
 
 
 
