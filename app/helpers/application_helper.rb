@@ -17,11 +17,11 @@ module ApplicationHelper
   end
 
   # def accept_or_deny_btn(friendship)
-  #   friend_request = Friendship.find_by(status: false, user: current_user)
+  #   friend_request = Friendship.find_by( user: current_user , friendship: friendship)
   #   if friend_request
-  #     link_to('Accept', user_friendship_path(@user, i.id))
-  #     link_to 'Deny', user_friendships_path(@user)
-  #   else
+  #     link_to( 'Accept', user_friendship_path(@user, i.id))
+  #     link_to( 'Deny', user_friendships_path(@user))
   #   end
   # end
+
 end
