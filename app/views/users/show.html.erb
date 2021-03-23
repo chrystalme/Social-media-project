@@ -2,23 +2,29 @@
 
   <br>
   <h3 class="text-danger">Friends:</h3>
+  <ul>
+    <% if current_user.friends.none?%>
+    <p>You have no friends </p>
+    <% else %>
+    <% current_user.friends.each do |friend| %>
+    <li><%= friend.name %></li>
+    <% end %>
+    <% end %>
+  </ul>
   <h3 class="text-danger">Pending Friends:</h3>
-  <% if @user.inverse_friendships.exists? %>
-  <% @user.inverse_friendships.each do |i| %>
+  <% if current_user.pending_friendships.none? %>
+  <p>You have no pending friendships </p>
+  <% else %>
+  <% current_user.pending_friendships.each do |pf| %>
   <br>
-  <h4 class="text-capitalize"><%= i.user.name %></h4>
+  <h4 class="text-capitalize"><%= pf.user.name %></h4>
   <br>
-  <% if i.status == false %>
-
   <%= link_to 'Accept', user_friendship_path(@user, i.id), class:"btn btn-outline-primary", method: :patch %>
-  <% if i.status == true %>
-  <%= flash[:notice] = "You accept #{i.name.capitalize}'s frienship request." %>
-  <% end %>
   <%= link_to 'Deny', user_friendships_path(@user) , class:"btn btn-outline-secondary" %>
 
   <% end %>
   <% end %>
-  <% end %>
+
 
 
 
