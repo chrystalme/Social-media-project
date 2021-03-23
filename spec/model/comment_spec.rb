@@ -6,8 +6,8 @@ RSpec.describe Comment, type: 'model' do
     it { should belong_to(:post) }
   end
 
-   describe 'validations' do
+  describe 'validations' do
     it { should validate_presence_of(:content) }
     xit { should validate_length_of(:content).is_at_most(200) }
-   end
+  end
 end
