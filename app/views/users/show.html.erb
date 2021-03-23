@@ -1,9 +1,10 @@
 <section class="user-section">
 
   <br>
+  <h3 class="text-danger">Friends:</h3>
   <h3 class="text-danger">Pending Friends:</h3>
   <% if @user.inverse_friendships.exists? %>
-  <% @user.inverse_friendships.each do |i| %>
+    <% @user.inverse_friendships.each do |i| %>
   <br>
   <h4 class="text-capitalize"><%= i.user.name %></h4>
   <br>
