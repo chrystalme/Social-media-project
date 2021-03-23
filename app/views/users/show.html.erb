@@ -11,7 +11,7 @@
 
   <%= link_to 'Accept', user_friendship_path(@user, i.id), class:"btn btn-outline-primary", method: :patch %>
   <% if i.status == true %>
-  <%= flash[:notice] = "You accept #{i.name}'s frienship request." %>
+  <%= flash[:notice] = "You accept #{i.name.capitalize}'s frienship request." %>
   <% end %>
   <%= link_to 'Deny', user_friendships_path(@user) , class:"btn btn-outline-secondary" %>
 
