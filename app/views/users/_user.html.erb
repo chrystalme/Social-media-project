@@ -4,19 +4,27 @@
   </p>
 
 
-  <% if !current_user.friend?(@user) %>
-  <% current_user.friendships.each do |i| %>
-  <% if i.status == false %>
-  <p class="btn btn-success disabled"> Pending </p>
-  <% else %>
-  <%= link_to 'Invite to Friend', user_friendships_path(user), class:"btn btn-secondary", method: :post %>
+ <% if user.inverse_friendships.exists? || user.friendships.exists?  %>
+    <% user.inverse_friendships.each do |i| %>
+      <% if i.status == false %>
+        <p class="btn btn-success disabled"> Pending </p>
+      <% else%>
+        <p class="btn btn-info disabled"> Friend </p>
+      <% end %>
+    <% end %>
+     <% user.friendships.each do |i| %>
+      <% if i.status == false %>
+        <%= link_to 'Accept', user_friendship_path(user, i.id), class:"btn btn-outline-primary", method: :patch %>
+        <%= link_to 'Deny', user_friendships_path(user) , class:"btn btn-outline-secondary" %>
+      <% else%>
+        <p class="btn btn-info disabled"> Friend </p>
+      <% end %>
+    <% end %>
+  <% else  %>
+    <p class="px-2">
+      <%= link_to 'Invite to Friend', user_friendships_path(user), class:"btn btn-secondary", method: :post %>
+    </p>
   <% end %>
-  <% end %>
-  <% else %>
-  <p class="btn btn-info disabled"> 'Friend' </p>
-  <% end %>
-  <<<<<<< HEAD=======--->
 
-    >>>>>>> 19857961148167870d4587c2d21511c5cb543beb
 </li>
 <br>
