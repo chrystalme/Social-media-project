@@ -1,9 +1,11 @@
 <li>
 
   <p class="">
-    <%= link_to "#{user.name}",  user_path(user)   %>
+    <%= link_to "#{user.name}",  profile_path(user) %>
   </p>
 
+
+<!--
   <% if user.inverse_friendships.exists? || user.friendships.exists?  %>
     <% user.inverse_friendships.each do |i| %>
       <% if i.status == false %>
@@ -28,7 +30,7 @@
     </p>
   <% end %>
 
-
+-->
 
 </li>
 <br>
