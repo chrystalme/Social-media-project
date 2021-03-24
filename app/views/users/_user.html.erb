@@ -5,7 +5,7 @@
   </p>
 
 
-  <!--
+  <!---
   <% if user.inverse_friendships.exists? || user.friendships.exists?  %>
   <% user.inverse_friendships.each do |i| %>
     <% if i.status == false %>
@@ -13,7 +13,7 @@
     <% else%>
     <p class="btn btn-info disabled"> Friend </p>
     <% end %>
-  <% else %>
+
   <% user.friendships.each do |i| %>
     <% if i.status == false %>
     <%= link_to 'Accept', user_friendship_path(user, i.id), class:"btn btn-outline-primary", method: :patch %>
@@ -31,7 +31,7 @@
   </p>
   <% end %>
 
--->
+--->
 
 </li>
 <br>

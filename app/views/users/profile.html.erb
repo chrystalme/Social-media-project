@@ -1,14 +1,10 @@
-<% if current_user.pending_friendships.exists?(@user.id) %>
-<p class="btn btn-success disabled"> Pending </p>
-<% else%>
-<p class="px-2">
-  <%= link_to 'Invite to Friend', user_friendships_path(@user), class:"btn btn-secondary", method: :post %>
-</p>
-<!--- <% if @user.friend?(current_user) == false %>
-<%= link_to 'Accept', user_friendship_path(@user, current_user), class:"btn btn-outline-primary", method: :patch %>
-<%= link_to 'Deny', user_friendships_path(@user) , class:"btn btn-outline-secondary" %>
-<% end %> --->
-<% end %>
+<% if current_user.friendships.find_by(user_id: @user.id)  %>
+  <p class="btn btn-success disabled"> Pending </p>
+<% elsif !current_user.friend?(@user) %>
+  <p class="px-2">
+    <%= link_to 'Invite to Friend', user_friendships_path(@user.id), class:"btn btn-secondary", method: :post %>
+  </p>
+<% end %> 
 
 
 <article class="timeline">
