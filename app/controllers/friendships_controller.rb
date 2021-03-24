@@ -3,7 +3,7 @@ class FriendshipsController < ApplicationController
     @friendship = current_user.friendships.new(friend_id: params[:user_id])
     if @friendship.save
       flash[:notice] = "Friend request has been sent to #{user.name.capitalize}"
-      redirect_to users_path
+      redirect_to profile_path(user)
     else
       render 'new'
     end
