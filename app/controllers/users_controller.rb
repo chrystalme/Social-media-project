@@ -5,6 +5,11 @@ class UsersController < ApplicationController
     @users = User.all.where.not(email: current_user.email)
   end
 
+  def profile
+    @user = User.find(params[:id])
+    @posts = @user.posts.ordered_by_most_recent
+  end
+  
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.ordered_by_most_recent

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   devise_for :users 
-
+  get "users/:id/profile", to: "users#profile", as: "profile"
   resources :users, only: [:index, :show] do
     resources :friendships, only: %i[create update]
   end
