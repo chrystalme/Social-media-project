@@ -1,10 +1,10 @@
 <% if current_user.friend?(@user) %>
- <p class="btn btn-info disabled"> Friend </p>
+<p class="btn btn-info disabled"> Friend </p>
 
-<% elsif current_user.friendship == @user.inverse_friendship %>
+<% elsif current_user.friendships == @user.inverse_friendships %>
 
-  <br>
- <p class="btn btn-info disabled"> Pending </p>
+<br>
+<p class="btn btn-info disabled"> Pending </p>
 <% end %>
 
 
