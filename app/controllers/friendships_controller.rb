@@ -11,11 +11,11 @@ class FriendshipsController < ApplicationController
 
   # Accept Friendship
   def update
-    if user.id == current_user.id
-      @friendship = Friendship.find_by_id(params[:id]) #for current_user, show page
-    else
-      @friendship = Friendship.find_by_user_id(params[:id]) #_user page, user
-    end
+    @friendship = if user.id == current_user.id
+                    Friendship.find_by_id(params[:id]) # for current_user, show page
+                  else
+                    Friendship.find_by_user_id(params[:id]) # _user page, user
+                  end
     @friendship.status = true
     flash[:notice] = "You accepted friend request from #{@friendship.user.name.capitalize}" if @friendship.save
     redirect_to user_path(user)
