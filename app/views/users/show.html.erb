@@ -19,7 +19,8 @@
   <br>
   <h4 class="text-capitalize"><%= pf.user.name %></h4>
   <br>
-  <%= link_to 'Accept', user_friendship_path(@user, pf.id), class:"btn btn-outline-primary", method: :patch %>
+  
+  <%= link_to 'Accept', user_friendship_path(@user,pf.id), class:"btn btn-outline-primary", method: :patch %>
   <%= link_to 'Deny', user_friendships_path(@user) , class:"btn btn-outline-secondary" %>
 
   <% end %>
