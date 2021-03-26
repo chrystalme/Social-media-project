@@ -23,8 +23,13 @@ class PostsController < ApplicationController
     # @timeline_posts ||= Post.where("user_id = ?", current_user.friends ).ordered_by_most_recent.includes(:user)
     @timeline_posts = []
     Post.all.each do |post|
-      if post.user_id == current_user.id  
+      if post.user_id == current_user.id
         @timeline_posts << post
+      end
+      current_user.friends.each do |i|
+        if post.user_id == i.id
+          @timeline_posts << post
+        end
       end
     end
     @timeline_posts
