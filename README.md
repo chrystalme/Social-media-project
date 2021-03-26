@@ -37,11 +37,11 @@ Set up project using the above specifications
 
 #### For HTTPS
 
-- use ` https://github.com/chrystalme/private-events.git` to clone the repository
+- use ` https://github.com/ahmetbozaci/ror-social-scaffold.git` to clone the repository
 
 #### For SSH
 
-- use `git@github.com:chrystalme/private-events.git` to clone the repository
+- use `git@github.com:ahmetbozaci/ror-social-scaffold.git` to clone the repository
 - Change to the parent directory of the project using
   `cd private-events`
 - run `bundle install ` to install dependencies
@@ -76,7 +76,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- [Odin Projects](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations)
+- [Odin Projects](https://www.theodinproject.com/courses/ruby-on-rails/)
 - [Microverse](https://microverse.com)
 
 ## 📝 License
