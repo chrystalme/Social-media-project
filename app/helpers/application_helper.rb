@@ -18,14 +18,14 @@ module ApplicationHelper
 
   def login_display
     output = ''
-    if current_user
-      output << " #{link_to current_user.name, user_path(current_user)} |
+    output << if current_user
+                " #{link_to current_user.name, user_path(current_user)} |
       #{link_to gravatar_image_tag(current_user.email, gravatar: { size: 18 },
                                                        alt: current_user.name), user_path(current_user)}
       #{link_to 'Sign out', destroy_user_session_path, method: :delete}"
-    else
-      output << "link_to 'Sign in', user_session_path"
-    end
+              else
+                "link_to 'Sign in', user_session_path"
+              end
     output.html_safe
   end
 
