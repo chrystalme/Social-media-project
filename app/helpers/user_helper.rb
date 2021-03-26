@@ -1,5 +1,4 @@
 module UserHelper
-
   def profile_btn(user)
     output = ''
     if !current_user.friend?(user)

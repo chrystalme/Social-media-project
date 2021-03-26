@@ -22,13 +22,9 @@ class PostsController < ApplicationController
   def timeline_posts
     @timeline_posts = []
     Post.all.ordered_by_most_recent.each do |post|
-      if post.user_id == current_user.id
-        @timeline_posts << post
-      end
+      @timeline_posts << post if post.user_id == current_user.id
       current_user.friends.each do |i|
-        if post.user_id == i.id
-          @timeline_posts << post
-        end
+        @timeline_posts << post if post.user_id == i.id
       end
     end
     @timeline_posts

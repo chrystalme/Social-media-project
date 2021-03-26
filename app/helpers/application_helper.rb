@@ -28,7 +28,7 @@ module ApplicationHelper
     end
     output.html_safe
   end
-  
+
   def notice_alert
     output = ''
     if notice.present?
