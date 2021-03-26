@@ -5,7 +5,7 @@
     </div>
     <div class='post-liking'>
       <span class='post-date'> <%= post.created_at.strftime("%Y/%m/%d") %> </span>
-      <%= like_or_dislike_btn(post) %> (<%= post.likes.count %>)
+      <%= like_or_dislike_btn(post) %> <em class="badge bg-primary"><%= post.likes.count %></em>
     </div>
   </div>
   <p class="post-content">
