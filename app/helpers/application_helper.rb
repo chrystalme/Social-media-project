@@ -16,22 +16,31 @@ module ApplicationHelper
     end
   end
 
-  def profile_btn(user)
+  def login_display
     output = ''
-    if !current_user.friend?(user)
-      if current_user.pending_friends.include?(user) 
-        output << "<p class='btn btn-info disabled'> Pending </p>"
-      elsif current_user.friend_requests.include?(user) 
-        output << "#{ link_to 'Accept', user_friendship_path(current_user, current_user.pending_friendship_ids[0] ), class:'btn btn-outline-primary', method: :patch }"
-        output << "#{ link_to 'Deny', user_friendships_path(user) , class:'btn btn-outline-secondary' }"
-      else 
-        output << "<p class='px-2'>"
-        output << "#{link_to 'Invite to Friend', user_friendships_path(user, current_user), class:'btn btn-secondary', method: :post }"
-      output << "</p>"
-      end 
-    else 
-      output << "<p class='btn btn-info disabled'> Friend </p>"
-    end    
+    if current_user 
+      output << " #{link_to current_user.name, user_path(current_user) } |
+      #{ link_to gravatar_image_tag(current_user.email, gravatar: { :size => 18 }, alt: current_user.name), user_path(current_user) }
+      #{ link_to 'Sign out', destroy_user_session_path, method: :delete } "
+    else
+    output <<  "#{ link_to 'Sign in', user_session_path }"
+    end
     output.html_safe
+  end
+  
+  def notice_alert
+    output = ''
+    if notice.present?
+      output << "
+      <div class='notice'>
+        <p> #{notice} </p>
+      </div>"
+  
+    elsif alert.present?
+      output << "<div class='alert'>
+        <p> #{ alert } </p>
+      </div>"
+    end
+    output.html_safe 
   end
 end
