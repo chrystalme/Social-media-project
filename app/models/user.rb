@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -12,12 +10,10 @@ class User < ApplicationRecord
 
   has_many :friendships, dependent: :destroy
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: :friend_id, dependent: :destroy
-  # Added these for the other options for user status
+
   has_many :accepted_friendships, -> { where(status: true) }, class_name: 'Friendship'
   has_many :pending_friendships, -> { where(status: false) }, class_name: 'Friendship', foreign_key: :friend_id
 
-  # enum(:confirmed, :pending_friends, :requested_friends)
-  # status = confirmed and status == 'confirmed'
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.status == true }
     friends_array += inverse_friendships.map { |friendship| friendship.user if friendship.status }

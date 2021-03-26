@@ -24,7 +24,7 @@ module ApplicationHelper
                                                        alt: current_user.name), user_path(current_user)}
       #{link_to 'Sign out', destroy_user_session_path, method: :delete}"
               else
-                "link_to 'Sign in', user_session_path"
+                link_to 'Sign in', user_session_path.to_s
               end
     output.html_safe
   end
