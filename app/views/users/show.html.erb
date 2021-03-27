@@ -1,9 +1,22 @@
 <section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
+
+  <br>
+  <h3 class="text-danger">Friends:</h3>
+  <ul>
+    <li>
+      <%= friend %>
+    </li>
+  </ul>
+
+  <h3 class="text-danger">Pending Friends:</h3>
+    <%= pending_friend_display %>
+  <br>
+ 
   <article class="timeline">
-    <h3>Recent posts:</h3>
+    <h3 class="text-primary">Your Posts:</h3>
     <ul class="posts">
       <%= render @posts %>
     </ul>
   </article>
+  
 </section>
