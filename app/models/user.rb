@@ -49,8 +49,8 @@ class User < ApplicationRecord
         end
       end
     end
-    @mutual_friend.uniq
     @mutual_friend.delete(user_1.name)
-    @mutual_friend
+    @mutual_friend.uniq
+    
   end
 end

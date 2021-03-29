@@ -1,8 +1,13 @@
 <%= profile_btn(@user) %>
 
 <h3 class="text-danger">Mutual Friends:</h3>
-<p> Your mutual friendships show here </p>
-<%= current_user.mutual_friend(current_user, @user) %>
+<% if current_user.mutual_friend(current_user, @user).none? %>
+  <p> You have no mutual friends </p>
+<% else %>
+  <% current_user.mutual_friend(current_user, @user).each do |friend| %>
+    <li><%= friend.capitalize %></li>
+  <% end %>
+<% end %>
 <br>
 
 <article class="timeline">
