@@ -39,4 +39,18 @@ class User < ApplicationRecord
   def friend?(user)
     friends.include?(user)
   end
+
+    def mutual_friend(user_1, user_2)
+    @mutual_friend = []
+    user_1.friends.each do |f|
+      user_2.friends.each do |g|
+        if f.id = g.id 
+          @mutual_friend << g.name
+        end
+      end
+    end
+    @mutual_friend.uniq
+    @mutual_friend.delete(user_1.name)
+    @mutual_friend
+  end
 end
