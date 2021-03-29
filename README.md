@@ -2,9 +2,9 @@
 
 ![screenshot](./app/assets/images/Screenshot-1.png)
 
-![screenshot](./app/assets/images/Screenshot-1.png)
+![screenshot](./app/assets/images/Screenshot-2.png)
 
-![screenshot](./app/assets/images/Screenshot-1.png)
+![screenshot](./app/assets/images/Screenshot-3.png)
 
 ## The application is created as a part requirement of the Microverse fullstack developer course
 
