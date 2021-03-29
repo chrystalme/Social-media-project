@@ -45,4 +45,17 @@ module UserHelper
     end
     output.html_safe
   end
+
+  def mutual_friend_display
+    output = ''
+    if current_user.mutual_friend(current_user, @user).none?
+      output << '<p> You have no mutual friends </p>'
+    else
+      current_user.mutual_friend(current_user, @user).each do |friend|
+        output << "<li>#{friend.capitalize}</li>"
+      end
+    end
+    output.html_safe
+  end
+
 end
