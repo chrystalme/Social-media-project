@@ -57,5 +57,4 @@ module UserHelper
     end
     output.html_safe
   end
-
 end
