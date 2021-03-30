@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users 
   get "users/:id/profile", to: "users#profile", as: "profile"
+  delete "users/:user_id/friendships/:id", to: "friendships#destroy", as: "delete"
   resources :users, only: [:index, :show] do
     resources :friendships, only: %i[create update]
   end
