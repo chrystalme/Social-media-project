@@ -7,7 +7,7 @@ module UserHelper
                 elsif current_user.friend_requests.include?(user)
                   "#{link_to 'Accept', user_friendship_path(current_user, current_user.pending_friendship_ids[0]),
                              class: 'btn btn-outline-primary', method: :patch}
-          #{link_to 'Deny', user_friendships_path(user), class: 'btn btn-outline-secondary'}"
+          #{link_to 'Deny', delete_path(current_user, current_user.pending_friendship_ids[0]), method: :delete, class: 'btn btn-outline-secondary'}"
                 else
                   "<p class='px-2'> #{link_to 'Invite to Friend', user_friendships_path(user, current_user),
                                               class: 'btn btn-secondary', method: :post}  </p>"
@@ -40,7 +40,8 @@ module UserHelper
         output << "
       <br><h4>#{friend.user.name.capitalize}</h4><br>
       #{link_to 'Accept', user_friendship_path(@user, friend.id), class: 'btn btn-outline-primary', method: :patch}
-      #{link_to 'Deny', user_friendships_path(@user), class: 'btn btn-outline-secondary'} "
+      #{link_to 'Deny', delete_path(@user, current_user.pending_friendship_ids[0]), 
+      method: :delete, class: 'btn btn-outline-secondary'}"
       end
     end
     output.html_safe
