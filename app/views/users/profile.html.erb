@@ -1,8 +1,8 @@
 <%= profile_btn(@user) %>
 
 <h3 class="text-danger">Mutual Friends:</h3>
-<p> Your mutual friendships show here </p>
-<%= current_user.mutual_friend(current_user, @user) %>
+<%= mutual_friend_display %>
+
 <br>
 
 <article class="timeline">

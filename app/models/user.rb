@@ -32,7 +32,7 @@ class User < ApplicationRecord
 
   def confirm_friend(user)
     friendship = inverse_friendships.find { |friend| friend.user == user }
-    frienship.status = true
+    friendship.status = true
     friendship.save
   end
 
@@ -40,17 +40,14 @@ class User < ApplicationRecord
     friends.include?(user)
   end
 
-    def mutual_friend(user_1, user_2)
+  def mutual_friend(user1, user2)
     @mutual_friend = []
-    user_1.friends.each do |f|
-      user_2.friends.each do |g|
-        if f.id = g.id 
-          @mutual_friend << g.name
-        end
+    user1.friends.each do |f|
+      user2.friends.each do |g|
+        @mutual_friend << g.name if f.id == g.id
       end
     end
+    @mutual_friend.delete(user1.name)
     @mutual_friend.uniq
-    @mutual_friend.delete(user_1.name)
-    @mutual_friend
   end
 end
