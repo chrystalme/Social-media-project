@@ -1,83 +1,74 @@
-# Scaffold for social media app with Ruby on Rails
+# Social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+![screenshot](./app/assets/images/Screenshot-1.png)
+
+![screenshot](./app/assets/images/Screenshot-2.png)
+
+![screenshot](./app/assets/images/Screenshot-3.png)
+
+## The application is created as a part requirement of the Microverse fullstack developer course
+
+### The following functionalities are applicable in the application
+
+    - Users are able to create accounts
+    - Users are able to make friendship requests and can be requested also to be be-friended
+    - User can create posts and comment on post by other users that are their friends
+    - Users can like posts or dislike posts.
 
 ## Built With
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby
+- Rubocop
+- Visual Studio Code
 
-## Live Demo
+### Ruby version
 
-TBA
+`ruby 2.7.0`
 
+### System dependencies
 
-## Getting Started
+`rails 5.2.3`
+`yarn 1.22.5`
+`node 14.16.0`
 
-To get a local copy up and running follow these simple example steps.
+### Configuration
 
-### Prerequisites
+Set up project using the above specifications
 
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
+#### For HTTPS
 
-### Setup
+- use ` https://github.com/ahmetbozaci/ror-social-scaffold.git` to clone the repository
 
-Instal gems with:
+#### For SSH
 
-```
-bundle install
-```
-
-Setup database with:
-
-```
-   rails db:create
-   rails db:migrate
-```
-
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
-
-
-### Usage
-
-Start server with:
-
-```
-    rails server
-```
-
-Open `http://localhost:3000/` in your browser.
-
-### Run tests
-
-```
-    rpsec --format documentation
-```
-
-> Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
-
-### Deployment
-
-TBA
+- use `git@github.com:ahmetbozaci/ror-social-scaffold.git` to clone the repository
+- Change to the parent directory of the project using
+  `cd private-events`
+- run `bundle install ` to install dependencies
+- run `yarn add ` to install dependencies
+- run `rails db:migrate ` to create schema
+- use `rails webpacker:install` to install webpacker
+- use `rails s` to run the rails server
 
 ## Authors
 
-TBA
+👤 **Malieze Afam Ifeanyi**
+
+- GitHub: [@chrystalme](https://github.com/chrystalme)
+- Twitter: [@afam_ifeanyi](https://twitter.com/afam_ifeanyi)
+- LinkedIn: [Malieze Afam Ifeanyi(chrys)](https://linkedin.com/afam-chrys)
+
+👤 **Ahmet Bozacı**
+
+- Github:[@ahmtbozaci](https://github.com/ahmetbozaci)
+- Twitter:[@ahmtbozaci](https://twitter.com/ahmtbozaci)
+- LinkedIn:[@ahmtbozaci](https://www.linkedin.com/in/ahmetbozaci/)
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!
+Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
+Feel free to check the [issues page](https://github.com/ahmetbozaci/ror-social-scaffold/issues).
 
 ## Show your support
 
@@ -85,9 +76,9 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-TBA
+- [Odin Projects](https://www.theodinproject.com/courses/ruby-on-rails/)
+- [Microverse](https://microverse.com)
 
 ## 📝 License
 
-TBA
-
+This project is [MIT](https://mit-license.org/) licensed.
