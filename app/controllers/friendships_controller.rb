@@ -23,7 +23,7 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friend = Friendship.find_by_id(params[:id])
-    @friend.destroy
+    flash[:notice] = "You denied friend request from #{@friend.user.name.capitalize}" if @friend.destroy
     redirect_to user_path(user)
   end
 
