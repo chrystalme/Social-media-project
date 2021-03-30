@@ -46,8 +46,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :production do 
-  gem 'pg'         #gem to use in production environment
+group :production do
+  gem 'pg' # gem to use in production environment
 end
 group :test do
   gem 'capybara'
