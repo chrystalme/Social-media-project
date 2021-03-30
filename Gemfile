@@ -49,7 +49,7 @@ end
 group :production do 
   gem 'pg'         #gem to use in production environment
 end
-
+group :test do
   gem 'capybara'
   gem 'rspec'
   gem 'selenium-webdriver'
